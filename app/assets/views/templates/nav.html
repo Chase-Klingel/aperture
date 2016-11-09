@@ -1,0 +1,17 @@
+<nav class="col s12" id="nav" ng-controller="NavCtrl as navCtrl">
+  <h1 class="center" id="logo"><a ui-sref="home">aperature</a></h1>
+  <ul>
+    <li ng-show="navCtrl.$state.current.name === 'main'">
+      <img ng-click="show = !show" class="search-icon" src="images/search.png" alt="" />
+      <input ng-show="show" id="search-bar" ng-model="searchCtrl.searchText" type=search class="fade" placeholder="Search cameras...">
+      <img ng-show="show" ng-click="show = !show; searchCtrl.clearSearch()" class="exit-search fade" src="images/delete.png" alt="exit"/>
+    </li>
+    <li ng-show="navCtrl.$state.current.name === 'main'">
+      <a ui-sref="orders" id="cart">cart ({{ cartCtrl.totalQuantity }}) {{ cartCtrl.subtotal | currency }}</a>
+    </li>
+    <li>
+      <a class="center" id="logout" ui-sref="login">log out</a>
+      <a class="center" id="login" ui-sref="home">log in</button>
+    </li>
+  </ul>
+</nav>

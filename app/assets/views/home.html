@@ -1,0 +1,33 @@
+<main id="home-page">
+  <ul id="catalog-items">
+    <li ng-repeat="camera in catalogCtrl.cameras | filter:searchCtrl.searchText">
+      <div class="col s10 offset-s2 product-container" id="{{ 'product-' + camera.id }}" ng-style="{'background-image':'url({{ camera.image }})'}">
+        <div class="on-sale center" ng-show="camera.onSale === true">On Sale</div>
+        <div class="product-info-container">
+          <h2 class="product-name">{{ camera.name }}</h2>
+          <button class="order-button" type="button" ng-click="cartCtrl.addCamera(camera)">order</button>
+          <button class="details-button" type="button">reviews</button>
+          <div class="row icon-container">
+            <ul class="spec-list">
+              <li>
+                <img class="item-icon" src="images/star.png" alt="" />
+                <h4 class="item-spec">Rating: {{ camera.rating }}</h4>
+              </li>
+              <li>
+                <img class="item-icon" src="images/zoom.png" alt="" />
+                <h4 class="item-spec">Digital zoom: {{ camera.digitalZoom }}</h4>
+              </li>
+              <li>
+                <img class="item-icon" src="images/shutter-speed.png" alt="" />
+                <h4 class="item-spec">Shutter speed: {{ camera.shutterSpeed }}</h4>
+              </li>
+            </ul>
+          </div>
+          <div class="row">
+            <h3 class="price"> {{ camera.price | currency }}</h3>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</main>

@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/api/cameras', (_req, res, next) => {
   knex('cameras')
-    .orderBy('name')
+    .orderBy('id')
     .then((rows) => {
       const cameras = camelizeKeys(rows);
 

@@ -7,6 +7,8 @@ exports.up = function(knex) {
     table.string('image').notNullable().defaultTo('');
     table.enu('rating', [1, 2, 3, 4, 5]).notNullable();
     table.decimal('price', 8, 2);
+    table.string('shutter_speed').notNullable().defaultTo('');
+    table.string('digital_zoom').notNullable().defaultTo('');
     table.boolean('on_sale');
     table.timestamps(true, true);
   });
