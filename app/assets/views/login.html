@@ -1,0 +1,19 @@
+<main id="auth-page">
+  <div class="row">
+    <form class="col s12 m6" id="signup-form">
+      <div input-field class="col s8 offset-s1">
+        <h2 class="auth-title">Login</h2>
+        <label>Email</label>
+        <input type="email" ng-model="loginCtrl.email">
+      </div>
+      <div input-field class="col s8 offset-s1">
+        <label>Password</label>
+        <input type="password" ng-model="loginCtrl.password">
+        <button id="submit-login" type="button" name="button"
+          ng-click="loginCtrl.logIn()">Login</button>
+      </div>
+      </div>
+    </div>
+    </form>
+  </div>
+</main>

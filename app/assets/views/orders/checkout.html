@@ -1,0 +1,50 @@
+<div id="side-nav">
+  <a ui-sref="orders"><img class="exit-checkout" src="images/exit-checkout.png" alt="exit"
+    /></a>
+  <div class="col s11 offset-s1">
+    <h2 class="checkout-header">Checkout</h2>
+  </div>
+
+  <hr>
+
+  <div class="col s11 offset-s1">
+    <h3 class="checkout-header checkout-welcome">Welcome to the Aperature family.</h3>
+  </div>
+
+  <div class="col s11 offset-s1">
+    <p class="welcome-info">You have indicated your interest
+    in becoming the proud owner of an Aperature camera. We will contact
+    you when your order is ready for pickup. If you have any question beforehand
+    we ask you not to fill in this order process but contact us by email
+    at info@aperature.com or by phone at +31 88 7332882.</p>
+    <p ng-show="checkoutCtrl.needsReview === true" class="review-warning">
+      Please review your details before checking out.
+    </p>
+  </div>
+  <div input-field class="col s6 offset-s1">
+    <label>Address 1</label>
+    <input type="text" ng-model="checkoutCtrl.checkoutDetails.address1"
+      autofocus>
+  </div>
+  <div input-field class="col s6 offset-s1">
+    <label>Address 2 (optional)</label>
+    <input type="text" ng-model="checkoutCtrl.checkoutDetails.address2"
+      autofocus>
+  </div>
+  <div input-field class="col s6 offset-s1">
+    <label>City</label>
+    <input type="text" ng-model="checkoutCtrl.checkoutDetails.city">
+  </div>
+  <div input-field class="col s6 offset-s1">
+    <label>State</label>
+    <input type="text" ng-model="checkoutCtrl.checkoutDetails.state">
+  </div>
+  <div input-field class="col s6 offset-s1">
+    <label>Zip</label>
+    <input type="text" ng-model="checkoutCtrl.checkoutDetails.zip">
+    <div class="col s7 no-padding">
+      <button id="checkout" type="button" name="button"
+        ng-click="checkoutCtrl.dummyTest()">Checkout</button>
+    </div>
+  </div>
+</div>

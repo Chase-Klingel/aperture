@@ -1,13 +1,15 @@
 class CatalogCtrl {
-  constructor(catalogSvc) {
+  constructor(catalogSvc, userSvc, $state) {
     this.catalogSvc = catalogSvc;
+    this.userSvc = userSvc;
+
+    this.userSvc.verifyUser();
 
     this.catalogSvc.getCameras().then((cameras) => {
       this.cameras = cameras;
-      console.log(this.cameras);
     }).catch((err) => console.log(err));
   }
 }
 
-CatalogCtrl.$inject = ['catalogService'];
+CatalogCtrl.$inject = ['catalogService', 'userService', '$state'];
 export default CatalogCtrl;

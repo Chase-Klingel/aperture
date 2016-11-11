@@ -1,8 +1,14 @@
-html, body {
+#html, body {
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden !important;
   background: #1f1f1f;
+}
+
+.auth-title {
+  font-size: 28px;
 }
 
 #home-page {
@@ -151,6 +157,10 @@ a {
   border: 1px solid white;
 }
 
+.review-warning {
+  color: red;
+}
+
 .icon-container {
   margin-top: 50px;
 }
@@ -208,11 +218,11 @@ a {
 
 #side-nav {
   background: #f5f5f5;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
+  height: 1020px;
   width: 60%;
-  height: 100vh;
   z-index: 1000;
 }
 
@@ -261,7 +271,8 @@ hr {
 
 .s12 .order-photo {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
+  background-position: bottom center;
 }
 
 .order-item-container {
@@ -278,7 +289,7 @@ hr {
 }
 
 #thead {
-  background: #2c2c2c;
+  background: #808080;
   border: none;
 }
 
@@ -307,12 +318,9 @@ hr {
 }
 
 .order-large {
-  height: 300vh;
+  height: 90vh;
   background: #f1f1f1;
-}
-
-.blacken {
-  background: black;
+  border: 1px solid #808080;
 }
 
 .order-small {
@@ -345,7 +353,8 @@ hr {
 }
 
 #edit-order,
-#checkout {
+#checkout,
+#order-details {
   width: 100%;
   border-radius: 0;
   height: 65px;
@@ -363,10 +372,12 @@ hr {
   transition: .8s ease all;
 }
 
+#order-details,
 #checkout {
   background: #EF5350;
 }
 
+#order-details:hover,
 #checkout:hover {
   background: #eb2521;
   transition: .8s ease all;
@@ -378,7 +389,7 @@ hr {
   background-size: cover;
 }
 
-#auth-page:before {
+/*#auth-page:before {
   content: '';
   position: absolute;
   top: 0;
@@ -389,7 +400,7 @@ hr {
   opacity: .2;
   z-index: 1;
   height: 120vh;
-}
+}*/
 
 #signup-form {
   position: relative;
@@ -414,8 +425,14 @@ hr {
   border: 1px solid white;
 }
 
-#signup {
+#submit-signup,
+#submit-login {
   color: black;
+  background: black;
+  border: none;
+  width: 120px;
+  height: 42px;
+  color: white;
 }
 
 
@@ -427,14 +444,6 @@ hr {
 
 .sign-up {
   color: white;
-  position: relative;
-  z-index: 100;
-}
-
-
-#signup {
-  background: none;
-  border: 1px solid white;
   position: relative;
   z-index: 100;
 }
@@ -462,6 +471,11 @@ input[type=password]:focus:not([readonly]) {
 input[type=search]:focus:not([readonly]) {
   border-bottom: 1px solid lightgrey;
   box-shadow: none;
+}
+
+#site-footer {
+  margin-top: -20px;
+  background: #191b1c;
 }
 
 @media (max-width: 622px) {

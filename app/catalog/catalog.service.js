@@ -1,10 +1,10 @@
 class CatalogService {
   constructor($http) {
-    this._$http = $http;
+    this.$http = $http;
   }
 
   getCameras() {
-    return this._$http({
+    return this.$http({
       url: '/api/cameras',
       method: 'GET'
     }).then((cameras) => {

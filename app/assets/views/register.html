@@ -1,0 +1,29 @@
+<main id="auth-page">
+  <div class="row">
+    <form class="col s12 m6" id="signup-form">
+      <div input-field class="col s8 offset-s1">
+        <h2 class="auth-title">Sign Up</h2>
+        <label>First Name</label>
+        <input type="text" ng-model="registerCtrl.firstName"
+          autofocus>
+      </div>
+      <div input-field class="col s8 offset-s1">
+        <label>Last Name</label>
+        <input type="text" ng-model="registerCtrl.lastName"
+          autofocus>
+      </div>
+      <div input-field class="col s8 offset-s1">
+        <label>Email</label>
+        <input type="email" ng-model="registerCtrl.email">
+      </div>
+      <div input-field class="col s8 offset-s1">
+        <label>Password</label>
+        <input type="password" ng-model="registerCtrl.password">
+        <button id="submit-signup" type="button" name="button"
+          ng-click="registerCtrl.signUp()" toast="click">Sign Up</button>
+      </div>
+      </div>
+    </div>
+    </form>
+  </div>
+</main>

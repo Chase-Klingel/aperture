@@ -5,17 +5,6 @@ class CartCtrl {
     this.subtotal = 0;
     this.tax = 0;
     this.total = 0;
-    this.isBlack = true;
-    this.displayCheckout = false;
-  }
-
-  determineBackground() {
-    if (this.cameraList[0].id === 1 || this.cameraList[0].id === 3) {
-      this.isBlack = true;
-    } else {
-      this.isBlack = false;
-    }
-    return this.isBlack;
   }
 
   addCamera(camera) {
@@ -36,17 +25,9 @@ class CartCtrl {
 
     if (mappedCamList.indexOf(cam.id) === -1) {
       this.cameraList.push(cam);
+    } else {
+      this.cameraList[mappedCamList.indexOf(cam.id)].quantity++;
     }
-    this.cameraList[mappedCamList.indexOf(cam.id)].quantity++;
-  }
-
-  removeCamera(camera) {
-    this.totalQuantity++;
-    this.subtotal -= camera.price;
-  }
-
-  showSideNav() {
-    this.displayCheckout = !this.displayCheckout;
   }
 }
 
