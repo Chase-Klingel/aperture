@@ -1,0 +1,37 @@
+<main id="past-orders-page">
+  <ul>
+    <li ng-repeat="order in pastOrdersCtrl.pastOrders |  filter:searchCtrl.searchText">
+      <ul id="past-order-info">
+        <li class="center">
+          Quantity Ordered: {{ order.quantity }}
+        </li>
+      </ul>
+      <div class="col s10 offset-s2 product-container"
+      id="{{ 'product-' + order.id }}" ng-style="{'background-image':'url({{ order.image }})'}">
+        <div class="on-sale center" ng-show="order.onSale === true">On Sale</div>
+        <div class="product-info-container">
+          <h2 class="product-name">{{ order.name }}</h2>
+          <div class="row icon-container">
+            <ul class="spec-list">
+              <li>
+                <img class="item-icon" src="images/star.png" alt="" />
+                <h4 class="item-spec">Rating: {{ order.rating }}</h4>
+              </li>
+              <li>
+                <img class="item-icon" src="images/zoom.png" alt="" />
+                <h4 class="item-spec">Digital zoom: {{ order.digitalZoom }}</h4>
+              </li>
+              <li>
+                <img class="item-icon" src="images/shutter-speed.png" alt="" />
+                <h4 class="item-spec">Shutter speed: {{ order.shutterSpeed }}</h4>
+              </li>
+            </ul>
+          </div>
+          <div class="row">
+            <h3 class="price"> {{ order.price | currency }}</h3>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</main>

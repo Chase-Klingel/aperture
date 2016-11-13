@@ -1,8 +1,8 @@
 class LoginCtrl {
-  constructor(userSvc, $state) {
+  constructor(userSvc, $state, cartSvc) {
     this.userSvc = userSvc;
     this.$state = $state;
-
+    this.cartSvc = cartSvc;
     this.email = '';
     this.password = '';
   }
@@ -22,7 +22,6 @@ class LoginCtrl {
     }
 
     this.userSvc.logIn(user).then((res) => {
-      console.log(this.userSvc.currentUser);
       this.$state.go('home');
     }).catch((err) => {
       Materialize.toast('Bad email or password.', 4000);
@@ -31,5 +30,5 @@ class LoginCtrl {
   }
 }
 
-LoginCtrl.$inject = ['userService', '$state'];
+LoginCtrl.$inject = ['userService', '$state', 'cartService'];
 export default LoginCtrl;

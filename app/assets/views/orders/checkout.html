@@ -17,34 +17,34 @@
     you when your order is ready for pickup. If you have any question beforehand
     we ask you not to fill in this order process but contact us by email
     at info@aperature.com or by phone at +31 88 7332882.</p>
-    <p ng-show="checkoutCtrl.needsReview === true" class="review-warning">
+    <p ng-show="orderCtrl.needsReview === true" class="review-warning">
       Please review your details before checking out.
     </p>
   </div>
   <div input-field class="col s6 offset-s1">
     <label>Address 1</label>
-    <input type="text" ng-model="checkoutCtrl.checkoutDetails.address1"
+    <input type="text" ng-model="orderCtrl.checkoutDetails.address1"
       autofocus>
   </div>
   <div input-field class="col s6 offset-s1">
     <label>Address 2 (optional)</label>
-    <input type="text" ng-model="checkoutCtrl.checkoutDetails.address2"
+    <input type="text" ng-model="orderCtrl.checkoutDetails.address2"
       autofocus>
   </div>
   <div input-field class="col s6 offset-s1">
     <label>City</label>
-    <input type="text" ng-model="checkoutCtrl.checkoutDetails.city">
+    <input type="text" ng-model="orderCtrl.checkoutDetails.city">
   </div>
   <div input-field class="col s6 offset-s1">
     <label>State</label>
-    <input type="text" ng-model="checkoutCtrl.checkoutDetails.state">
+    <input type="text" ng-model="orderCtrl.checkoutDetails.state">
   </div>
   <div input-field class="col s6 offset-s1">
     <label>Zip</label>
-    <input type="text" ng-model="checkoutCtrl.checkoutDetails.zip">
+    <input type="text" ng-model="orderCtrl.checkoutDetails.zip">
     <div class="col s7 no-padding">
       <button id="checkout" type="button" name="button"
-        ng-click="checkoutCtrl.dummyTest()">Checkout</button>
+        ng-click="orderCtrl.postOrder()">Checkout</button>
     </div>
   </div>
 </div>

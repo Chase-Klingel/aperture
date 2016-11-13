@@ -1,15 +1,15 @@
 class UserService {
-  constructor($http, $state, currentUser) {
+  constructor($http, $state, cartSvc) {
     this.$state = $state;
     this.$http = $http;
+    this.cartSvc = cartSvc;
     this.loggedIn = false;
-    this.currentUser = '';
     this.$http({
       url: '/api/token',
       method: 'GET'
     }).then((res) => {
+      console.log('get api/token ' + res.data);
       this.loggedIn = res.data;
-      console.log(this.loggedIn);
       return res;
     })
   }
@@ -20,6 +20,7 @@ class UserService {
       method: 'POST',
       data: user
     }).then((res) => {
+      this.loggedIn = true;
       return res;
     }).catch((err) => err);
   }
@@ -30,8 +31,6 @@ class UserService {
       method: 'POST',
       data: user
     }).then((res) => {
-      console.log(this.currentUser);
-      this.currentUser = res.data;
       this.loggedIn = true;
       return res;
     })
@@ -42,6 +41,9 @@ class UserService {
       url: '/api/token',
       method: 'DELETE'
     }).then((res) => {
+      this.cartSvc.subTotal = 0;
+      this.cartSvc.cartTracker = [];
+      this.cartSvc.cameraList = [];
       this.loggedIn = false;
       return res;
     })
@@ -51,10 +53,11 @@ class UserService {
     if (this.loggedIn === false) {
       this.$state.go('register');
     } else {
+      console.log('you are good');
       return;
     }
   }
 }
 
-UserService.$inject = ['$http', '$state'];
+UserService.$inject = ['$http', '$state', 'cartService'];
 export default UserService;

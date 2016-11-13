@@ -4,9 +4,10 @@ import ngCookie from 'angular-cookies';
 import CartCtrl from './cart/cart.controller';
 import CatalogCtrl from './catalog/catalog.controller';
 import NavCtrl from './nav/nav.controller';
-import CheckoutCtrl from './order/checkout.controller';
+import OrderCtrl from './order/order.controller';
 import RegisterCtrl from './user/register.controller';
 import LoginCtrl from './user/login.controller';
+import PastOrdersCtrl from './order/pastOrders.controller';
 import SearchCtrl from './search/search.controller';
 import CartService from './cart/cart.service';
 import CatalogService from './catalog/catalog.service';
@@ -47,18 +48,27 @@ angular.module('cameraApp', [uiRouter, ngCookie])
     .state('orders', {
       url: '/orders',
       templateUrl: 'views/orders/orders.html',
+      controller: 'OrderCtrl',
+      controllerAs: 'orderCtrl'
+    })
+    .state('pastOrders', {
+      url: '/pastOrders',
+      templateUrl: 'views/pastOrders.html',
+      controller: 'PastOrdersCtrl',
+      controllerAs: 'pastOrdersCtrl'
     })
     .state('orders.checkout', {
       url: '/checkout',
       templateUrl: 'views/orders/checkout.html',
-      controller: 'CheckoutCtrl',
-      controllerAs: 'checkoutCtrl'
+      controller: 'OrderCtrl',
+      controllerAs: 'orderCtrl'
     })
   }])
   .controller('NavCtrl', NavCtrl)
   .controller('CartCtrl', CartCtrl)
   .controller('CatalogCtrl', CatalogCtrl)
-  .controller('CheckoutCtrl', CheckoutCtrl)
+  .controller('OrderCtrl', OrderCtrl)
   .controller('LoginCtrl', LoginCtrl)
+  .controller('PastOrdersCtrl', PastOrdersCtrl)
   .controller('RegisterCtrl', RegisterCtrl)
   .controller('SearchCtrl', SearchCtrl);

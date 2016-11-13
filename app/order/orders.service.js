@@ -1,6 +1,9 @@
 class OrdersService {
-  constructor($http) {
+  constructor($http, cartSvc, userSvc, $q) {
     this.$http = $http;
+    this.cartSvc = cartSvc;
+    this.userSvc = userSvc;
+    this.$q = $q;
   }
 
   getCheckoutDetails() {
@@ -14,15 +17,31 @@ class OrdersService {
 
   postOrder(order) {
     return this.$http({
-      url: '/api/orders',
+      url: '/orders',
       method: 'POST',
       data: order
     }).then((res) => {
       return res.data;
-    })
-    .catch((err) => err);
+    }).catch((err) => err);
+  }
+
+  getPastOrders() {
+    return this.$http({
+      url: '/api/orders',
+      method: 'GET'
+    }).then((res) => {
+      return res.data;
+    }).then((orders) => {
+      let promises = orders.map((order) => {
+        return this.$http({
+          url: `/api/orders/${order.id}`,
+          method: 'GET',
+        });
+      });
+      return this.$q.all(promises);
+    });
   }
 }
 
-OrdersService.$inject = ['$http'];
+OrdersService.$inject = ['$http', 'cartService', 'userService', '$q'];
 export default OrdersService;

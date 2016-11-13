@@ -39,7 +39,6 @@ class RegisterCtrl {
     }
 
     this.userSvc.signUp(user).then((res) => {
-      console.log(user);
       this.$state.go('home');
     }).catch((err) => {
       Materialize.toast('Sorry, there was an error. Please try again.', 4000);

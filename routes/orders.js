@@ -73,7 +73,7 @@ router.get('/api/orders/:id', authorize, (req, res, next) => {
 
 router.post('/orders', authorize, (req, res, next) => {
   const { items, address1, address2, city, state, zip } = req.body;
-
+  const { userId } = req.token;
   if (!address1 || !address1.trim()) {
     return next(boom.create(400, 'Address must not be blank'));
   }
@@ -90,14 +90,14 @@ router.post('/orders', authorize, (req, res, next) => {
     return next(boom.create(400, 'Zip must not be blank'));
   }
 
-  const insertOrder = { address1, address2, city, state, zip };
+  const insertOrder = { userId, address1, address2, city, state, zip };
   let order;
 
   knex('orders')
     .insert(decamelizeKeys(insertOrder), '*')
     .then((rows) => {
       order = camelizeKeys(rows[0]);
-
+      console.log('order on server ' + order);
       return knex('order_items')
         .insert(decamelizeKeys(items.map((item) => {
           return {

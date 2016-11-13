@@ -12,9 +12,17 @@
 }
 
 #home-page {
-  background: #fdf5f2;
-  height: 200%;
   margin-top: -15px;
+}
+
+#past-orders-page {
+  color: white;
+}
+
+#past-order-info {
+  margin-left: 50px;
+  color: lightgrey;
+  margin-bottom: 25px;
 }
 
 #catalog-items {
@@ -36,7 +44,7 @@ a {
 
 #cart {
   position: absolute;
-  right: 200px;
+  right: 75px;
   top: 0px;
 }
 
@@ -271,7 +279,8 @@ hr {
 
 .s12 .order-photo {
   width: 100%;
-  height: 40vh;
+  height: 500px;
+  border: 1px solid #808080;
   background-position: bottom center;
 }
 
@@ -315,12 +324,6 @@ hr {
 
 .total {
   color: yellow;
-}
-
-.order-large {
-  height: 90vh;
-  background: #f1f1f1;
-  border: 1px solid #808080;
 }
 
 .order-small {
@@ -409,8 +412,7 @@ hr {
   padding-top: 25px;
 }
 
-#login,
-#logout {
+#login {
   color: white;
   display: inline-block;
   height: 42px;
@@ -425,6 +427,37 @@ hr {
   border: 1px solid white;
 }
 
+#logout {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#demoDropdown {
+  background: black;
+}
+
+.dropdown-button {
+  background: none;
+  box-shadow: none;
+}
+
+.dropdown-button:hover {
+  background: none;
+  box-shadow: none;
+}
+
+#dropdown-option1,
+#dropdown-option2 {
+  color: white;
+  font-size: 14px;
+  width: 1000px;
+}
+
+#menu {
+  height: 35px;
+}
+
 #submit-signup,
 #submit-login {
   color: black;
@@ -436,8 +469,7 @@ hr {
 }
 
 
-#login:hover,
-#logout:hover {
+#login:hover {
   background: black;
   transition: .8s ease all;
 }
@@ -478,17 +510,13 @@ input[type=search]:focus:not([readonly]) {
   background: #191b1c;
 }
 
-@media (max-width: 622px) {
-  #logout {
-    width: 100px;
-    right: 10px;
-    top: 20px;
+@media (max-width: 817px) {
+  .s12 .order-photo {
+    height: 350px;
   }
+}
 
-  #cart {
-    top: 0;
-    right: 10px;
-  }
+@media (max-width: 622px) {
 
   .product-container {
     height: 250px;

@@ -1,17 +1,17 @@
 <main id="orders-page">
   <div class="row">
     <div class="col s12 l7 no-padding order-large">
-      <img class="order-photo" ng-src="{{cartCtrl.cameraList[0].image}}"
+      <img class="order-photo" ng-src="{{orderCtrl.jumboImg }}"
         alt="order photo" />
     </div>
     <div ui-view></div>
     <div class="col s12 col s6 l5 order-item-container no-padding">
       <ul>
-        <li ng-repeat="camera in cartCtrl.cameraList" class="item">
+        <li ng-repeat="camera in orderCtrl.cameraList()" class="item">
           <div class="col s12 no-padding order-item">
             <div class="col s8 m10 l8">
               <span class="outter-circle"><span class="order-circle"></span></span>
-              <h2 class="order-name">{{ camera.name }}</h2>
+              <h2 class="order-name">{{ camera.title }}</h2>
               <h3 class="order-price">{{ camera.price | currency }}</h3>
             </div>
             <div class="col s4 m2 l4 no-padding">
@@ -33,8 +33,8 @@
 
           <tbody id="tbody">
           </tbody>
-            <tr ng-repeat="camera in cartCtrl.cameraList">
-              <td class="center table-data table-cam-name">{{ camera.name }}</td>
+            <tr ng-repeat="camera in orderCtrl.cameraList()">
+              <td class="center table-data table-cam-name">{{ camera.title }}</td>
               <td class="center table-data">{{ camera.quantity }}</td>
               <td class="center table-data">{{ camera.price | currency }}</td>
             </tr>
@@ -42,17 +42,17 @@
             <tr id="subtotal">
               <td>&nbsp;</td>
               <td class="center">subtotal</td>
-              <td class="center">{{ cartCtrl.subtotal | currency }}</td>
+              <td class="center">{{ orderCtrl.getSubtotal() | currency }}</td>
             </tr>
             <tr id="tax">
               <td>&nbsp;</td>
               <td class="center">tax</td>
-              <td class="center">{{ cartCtrl.tax | currency }}</td>
+              <td class="center">{{ orderCtrl.getTax() | currency }}</td>
             </tr>
             <tr id="total">
               <td>&nbsp;</td>
               <td class="center total">total</td>
-              <td class="center total">{{ cartCtrl.total | currency }}</td>
+              <td class="center total">{{ orderCtrl.getTotal() | currency }}</td>
             </tr>
         </table>
       </div>

@@ -1,11 +1,12 @@
 class NavCtrl {
-  constructor(userSvc, $state) {
+  constructor(userSvc, $state, cartSvc) {
     this.$state = $state;
     this.userSvc = userSvc;
+    this.cartSvc = cartSvc;
   }
 
   displayCatItems() {
-    if (this.$state.current.name === ('main') || this.$state.current.name === ('home')) {
+    if (this.$state.current.name === ('main') || this.$state.current.name === ('home') || this.$state.current.name === ('pastOrders')) {
       return true;
     } else {
       return false;
@@ -26,13 +27,12 @@ class NavCtrl {
 
   logout() {
     this.userSvc.logout().then((res) => {
-      console.log('logged out!');
       this.$state.go('login');
     }).catch((err) => {
-      Materialize.toast('Sorry, an error occured. Please try again.');
+      Materialize.toast('Sorry, an error occured. Please try again.', 3000);
     })
   }
 }
 
-NavCtrl.$inject = ['userService', '$state'];
+NavCtrl.$inject = ['userService', '$state', 'cartService'];
 export default NavCtrl;
