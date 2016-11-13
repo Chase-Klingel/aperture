@@ -8,7 +8,7 @@ class CatalogCtrl {
 
     this.catalogSvc.getCameras().then((cameras) => {
       this.cameras = cameras;
-    }).catch((err) => console.log(err));
+    }).catch((err) => err);
   }
 
   addCamera(camera) {

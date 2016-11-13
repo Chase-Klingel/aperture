@@ -8,8 +8,8 @@ class UserService {
       url: '/api/token',
       method: 'GET'
     }).then((res) => {
-      console.log('get api/token ' + res.data);
       this.loggedIn = res.data;
+      console.log(this.loggedIn);
       return res;
     })
   }
@@ -53,7 +53,6 @@ class UserService {
     if (this.loggedIn === false) {
       this.$state.go('register');
     } else {
-      console.log('you are good');
       return;
     }
   }

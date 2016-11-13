@@ -5,15 +5,22 @@ class OrderCtrl {
     this.cartSvc = cartSvc;
     this.$state = $state;
     this.needsReview = false;
-    
-    if (this.cartSvc.cameraList > 0) {
-      this.jumboImg = this.cartSvc.cameraList[0].image;
-    }
+
+    this.address1 = '';
+    this.address2 = '';
+    this.city = '';
+    this.state = '';
+    this.zip = '';
 
     this.ordersSvc.getCheckoutDetails().then((checkoutDetails) => {
-      if (checkoutDetails.data[0].address1 === undefined) {
+      if (checkoutDetails.data.length === 0) {
         this.checkoutDetails = {
           items: this.cartSvc.cameraList,
+          address1: this.address1,
+          address2: this.address2,
+          city: this.city,
+          state: this.state,
+          zip: this.zip
         }
       } else {
         this.checkoutDetails = {
@@ -34,6 +41,12 @@ class OrderCtrl {
     this.userSvc.verifyUser();
   }
 
+  showJumbotron() {
+    if (this.cartSvc.cameraList.length > 0) {
+      return this.cartSvc.cameraList[0].image;
+    }
+  }
+
   postOrder() {
     this.ordersSvc.postOrder(this.checkoutDetails).then(() => {
       Materialize.toast('Your order was placed, thank you!', 3000);
@@ -52,7 +65,6 @@ class OrderCtrl {
   }
 
   getSubtotal() {
-    console.log(this.cartSvc.subTotal);
     return this.cartSvc.subTotal;
   }
 

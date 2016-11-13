@@ -97,7 +97,7 @@ router.post('/orders', authorize, (req, res, next) => {
     .insert(decamelizeKeys(insertOrder), '*')
     .then((rows) => {
       order = camelizeKeys(rows[0]);
-      console.log('order on server ' + order);
+
       return knex('order_items')
         .insert(decamelizeKeys(items.map((item) => {
           return {

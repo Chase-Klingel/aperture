@@ -10,6 +10,14 @@ class PastOrdersCtrl {
           this.pastOrders.push(orders[j]);
         }
       }
+
+      this.pastOrders = this.pastOrders.sort((a, b) => {
+        return a.order_id - b.order_id;
+      });
+
+      for (let k = 0; k < this.pastOrders.length; k++) {
+        this.pastOrders[k].created_at = moment(this.pastOrders[k].created_at).format('MMMM DD, YYYY');
+      }
     });
     this.userSvc.verifyUser();
   }
