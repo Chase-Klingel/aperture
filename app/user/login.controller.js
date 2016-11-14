@@ -1,8 +1,7 @@
 class LoginCtrl {
-  constructor(userSvc, $state, cartSvc) {
+  constructor(userSvc, $state) {
     this.userSvc = userSvc;
     this.$state = $state;
-    this.cartSvc = cartSvc;
     this.email = '';
     this.password = '';
   }
@@ -30,5 +29,5 @@ class LoginCtrl {
   }
 }
 
-LoginCtrl.$inject = ['userService', '$state', 'cartService'];
+LoginCtrl.$inject = ['userService', '$state'];
 export default LoginCtrl;

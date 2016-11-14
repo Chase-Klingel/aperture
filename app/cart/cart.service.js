@@ -1,9 +1,11 @@
 class CartService {
   constructor() {
+    // keeps track of cameras in cart
     this.cameraList = [];
+
+    // manages total count in cart
     this.cartTracker = [];
     this.subTotal = 0;
-
     this.tax = 0;
     this.total = 0;
   }
@@ -44,8 +46,12 @@ class CartService {
     };
 
     let mappedCamList = this.cameraList.map((camera) => camera.cameraId);
+
+    // if camera is not in cameraList then push
     if (mappedCamList.indexOf(cam.cameraId) === -1) {
       this.cameraList.push(cam);
+
+    // else, update camera quatity in cameraList
     } else {
       this.cameraList[mappedCamList.indexOf(cam.cameraId)].quantity++;
     }

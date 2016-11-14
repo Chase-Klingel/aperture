@@ -4,6 +4,8 @@ class OrderCtrl {
     this.userSvc = userSvc;
     this.cartSvc = cartSvc;
     this.$state = $state;
+
+    // needs review adds a warning message to check order details
     this.needsReview = false;
 
     this.address1 = '';
@@ -38,15 +40,17 @@ class OrderCtrl {
 
     }).catch((err) => err);
 
+    // kicks user to login if not authenticated
     this.userSvc.verifyUser();
   }
 
+  // shows large image of first order added to cart on orders page
   showJumbotron() {
     if (this.cartSvc.cameraList.length > 0) {
       return this.cartSvc.cameraList[0].image;
     }
   }
-
+  
   postOrder() {
     this.ordersSvc.postOrder(this.checkoutDetails).then(() => {
       Materialize.toast('Your order was placed, thank you!', 3000);

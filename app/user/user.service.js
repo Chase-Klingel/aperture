@@ -9,7 +9,6 @@ class UserService {
       method: 'GET'
     }).then((res) => {
       this.loggedIn = res.data;
-      console.log(this.loggedIn);
       return res;
     })
   }

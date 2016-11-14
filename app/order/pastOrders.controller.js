@@ -11,14 +11,18 @@ class PastOrdersCtrl {
         }
       }
 
+      // sorts past orders from most recent to oldest
       this.pastOrders = this.pastOrders.sort((a, b) => {
-        return a.order_id - b.order_id;
+        return b.order_id - a.order_id;
       });
 
+      // sets readable purchased date
       for (let k = 0; k < this.pastOrders.length; k++) {
         this.pastOrders[k].created_at = moment(this.pastOrders[k].created_at).format('MMMM DD, YYYY');
       }
     });
+
+    // verifies user is authenticated
     this.userSvc.verifyUser();
   }
 }

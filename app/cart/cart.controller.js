@@ -3,6 +3,7 @@ class CartCtrl {
     this.cartSvc = cartSvc;
     this.userSvc = userSvc;
 
+    // kicks user to login if not authenticated
     this.userSvc.verifyUser();
   }
 
@@ -10,6 +11,7 @@ class CartCtrl {
     return this.cartSvc.updateCartCount();
   }
 
+  // gets cart subtotal 
   getCartTotal() {
     return this.cartSvc.updateCartTotal();
   }

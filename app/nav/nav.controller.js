@@ -5,22 +5,28 @@ class NavCtrl {
     this.cartSvc = cartSvc;
   }
 
+  // shows category items (search icon, dropdown, cart) on appropriate pages
   displayCatItems() {
-    if (this.$state.current.name === ('main') || this.$state.current.name === ('home') || this.$state.current.name === ('pastOrders')) {
+    if (this.$state.current.name === ('main') ||
+      this.$state.current.name === ('home') ||
+      this.$state.current.name === ('pastOrders')) {
       return true;
     } else {
       return false;
     }
   }
 
+  // shows sign up when on login view
   displayRegItems() {
     return this.$state.current.name === 'register' ? true : false;
   }
 
+  // shows menu on orders view
   displayOrderItems() {
     return this.$state.current.name === 'orders' ? true : false;
   }
 
+  // shows login when on register view
   displayLoginItems() {
     return this.$state.current.name === 'login' ? true : false;
   }

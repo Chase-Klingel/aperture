@@ -4,6 +4,7 @@ class CatalogCtrl {
     this.userSvc = userSvc;
     this.cartSvc = cartSvc;
 
+    // kicks user to login if not authenticated
     this.userSvc.verifyUser();
 
     this.catalogSvc.getCameras().then((cameras) => {

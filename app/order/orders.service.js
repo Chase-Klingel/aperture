@@ -6,6 +6,7 @@ class OrdersService {
     this.$q = $q;
   }
 
+  // manages getting contact info for user
   getCheckoutDetails() {
     return this.$http({
       url: '/api/orders',
