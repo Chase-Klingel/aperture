@@ -15,4 +15,5 @@ class CatalogService {
   }
 }
 
+CatalogService.$inject = ['$http'];
 export default CatalogService;
