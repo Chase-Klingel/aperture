@@ -1,26 +1,29 @@
 <main id="orders-page">
   <div class="row">
-    <div class="col s12 l7 no-padding order-large">
-      <img class="order-photo" ng-src="{{ orderCtrl.showJumbotron() }}"
-        alt="order photo" />
+
+    <div class="col s12 m7 no-padding order-large">
+      <img class="order-photo" ng-src="{{ orderCtrl.showJumbotron() }}" />
     </div>
+
     <div ui-view></div>
-    <div class="col s12 col s6 l5 order-item-container no-padding">
+
+    <div class="col s12 m5 order-item-container no-padding">
       <ul>
         <li ng-repeat="camera in orderCtrl.cameraList()" class="item">
           <div class="col s12 no-padding order-item">
-            <div class="col s8 m10 l8">
+            <div class="col s8 l8">
               <span class="outter-circle"><span class="order-circle"></span></span>
               <h2 class="order-name">{{ camera.title }}</h2>
               <h3 class="order-price">{{ camera.price | currency }}</h3>
             </div>
-            <div class="col s4 m2 l4 no-padding">
+            <div class="col s4 l4 no-padding">
               <img class="order-small no-padding" ng-src="{{camera.image}}"
                 alt="camera image" />
             </div>
           </div>
         </li>
       </ul>
+
       <div>
         <table id="checkout-table">
           <thead id="thead">
@@ -32,12 +35,13 @@
           </thead>
 
           <tbody id="tbody">
-          </tbody>
             <tr ng-repeat="camera in orderCtrl.cameraList()">
               <td class="center table-data table-cam-name">{{ camera.title }}</td>
               <td class="center table-data">{{ camera.quantity }}</td>
               <td class="center table-data">{{ camera.price | currency }}</td>
             </tr>
+          </tbody>
+
           <tfoot>
             <tr id="subtotal">
               <td>&nbsp;</td>
@@ -56,6 +60,7 @@
             </tr>
         </table>
       </div>
+
       <div class="row">
         <div class="col s6 no-padding">
           <button id="edit-order" type="button" name="button">Edit Order</button>

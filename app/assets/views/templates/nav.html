@@ -2,8 +2,8 @@
   $('.dropdown-button').dropdown({
     inDuration: 300,
     outDuration: 225,
-    belowOrigin: false, // Displays dropdown below the button
-    alignment: 'right', // Displays dropdown with edge aligned to the left of button
+    belowOrigin: false,
+    alignment: 'right',
     constrainwidth: 'false'
   }
   );
@@ -11,6 +11,7 @@
 
 <nav class="col s12" id="nav" ng-controller="NavCtrl as navCtrl">
   <h1 class="center" id="logo"><a ui-sref="home">aperature</a></h1>
+
   <ul>
     <li ng-show="navCtrl.displayCatItems()">
       <img ng-click="show = !show" class="search-icon" src="images/search.png"
@@ -20,33 +21,38 @@
       <img ng-show="show" ng-click="show = !show; searchCtrl.clearSearch()"
         class="exit-search fade" src="images/delete.png" alt="exit"/>
     </li>
+
     <li ng-show="navCtrl.displayCatItems()">
       <a ui-sref="orders" id="cart">cart ({{ cartCtrl.getCartCount() }})
         {{ cartCtrl.getCartTotal() | currency }}</a>
     </li>
-    <li>
-    <li id="logout">
-      <a class='dropdown-button btn' data-activates='demoDropdown' dropdown data-click="true" ng-show="navCtrl.displayCatItems() || navCtrl.displayOrderItems()">
-        <img id="menu" src="images/menu.png" alt="" />
+
+    <li id="dropdown">
+      <a class='dropdown-button btn' data-activates='demoDropdown'
+        dropdown data-click="true"
+        ng-show="navCtrl.displayCatItems() || navCtrl.displayOrderItems()">
+          <img id="menu" src="images/menu.png" alt="" />
       </a>
 
       <!-- Dropdown Structure -->
       <ul id='demoDropdown' class='dropdown-content'>
-          <li><a ui-sref="pastOrders" id="dropdown-option1">Past Orders</a></li>
-          <li><a ui-sref="login" id="dropdown-option2" ng-click="navCtrl.logout()">Logout</a></li>
+        <li>
+          <a ui-sref="pastOrders" id="dropdown-option1">Past Orders</a>
+        </li>
+
+        <li>
+          <a ui-sref="login" id="dropdown-option2" ng-click="navCtrl.logout()">
+            Logout
+          </a>
+        </li>
       </ul>
     </li>
-
-
-      <!--<a class="center" id="logout" ui-sref="login"
-        ng-show="navCtrl.displayCatItems() || navCtrl.displayOrderItems()"
-        ng-click="navCtrl.logout()">
-
-      </a>-->
-      <a class="center" id="login" ui-sref="login"
-        ng-show="navCtrl.displayRegItems()">log in</button>
-      <a class="center" id="login" ui-sref="register"
-        ng-show="navCtrl.displayLoginItems()">sign up</button>
+    
+    <li>
+      <a class="center auth-button" ui-sref="login"
+        ng-show="navCtrl.displayRegItems()">log in</a>
+      <a class="center auth-button" ui-sref="register"
+        ng-show="navCtrl.displayLoginItems()">sign up</a>
     </li>
   </ul>
 </nav>

@@ -1,23 +1,23 @@
-#html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+html, body {
   overflow-x: hidden !important;
   background: #1f1f1f;
-}
-
-.auth-title {
-  font-size: 28px;
+  color: white;
 }
 
 #home-page {
   margin-top: -15px;
 }
 
-#past-orders-page {
-  color: white;
+.auth-title {
+  font-size: 28px;
+  color: black;
 }
+
+/******************************************************************************
+
+PAST ORDERS VIEW
+
+*******************************************************************************/
 
 #past-order-info {
   margin-left: 50px;
@@ -25,21 +25,17 @@
   margin-bottom: 25px;
 }
 
-#catalog-items {
-  color: white;
-}
+/******************************************************************************
 
-a {
-  color: white;
-}
+NAV BAR
+
+*******************************************************************************/
 
 #nav {
   height: 65px;
   background: #191b1c;
   position: relative;
   top: 0;
-  width: 100%;
-  z-index: 1000;
 }
 
 #cart {
@@ -57,7 +53,6 @@ a {
   letter-spacing: 3px;
   margin: 0;
   padding-top: 20px;
-  z-index: 100;
 }
 
 .search-icon,
@@ -86,6 +81,12 @@ a {
   padding-left: 90px;
 }
 
+/******************************************************************************
+
+CATALOG/PAST ORDERS VIEW
+
+*******************************************************************************/
+
 #catalog-items {
   padding-top: 50px;
 }
@@ -105,6 +106,12 @@ a {
   transition: 1s ease all;
 }
 
+.product-info-container {
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+/* white images get a grey overlay */
 #product-2:before,
 #product-4:before {
   content: '';
@@ -118,11 +125,6 @@ a {
   z-index: 1;
 }
 
-.product-info-container {
-  margin-left: 50px;
-  padding-top: 10px;
-}
-
 .product-name {
   position: relative;
   font-size: 30px;
@@ -130,7 +132,7 @@ a {
 }
 
 .order-button,
-.details-button {
+.review-button {
   position: relative;
   z-index: 100;
   height: 44px;
@@ -142,9 +144,18 @@ a {
   letter-spacing: 3px;
 }
 
-.details-button {
+.review-button {
   background: none;
   border: 1px solid lightgrey;
+}
+
+/* ensures materialize colors don't take effect */
+.review-button:focus {
+  background: none;
+}
+
+.review-button:hover {
+  border: 1px solid white;
 }
 
 .order-button:hover {
@@ -152,24 +163,13 @@ a {
   transition: .8s ease all;
 }
 
+/* ensures materialize colors don't take effect */
 .order-button:focus {
   outline: none;
   background-color: #eb2521;
 }
 
-.details-button:focus {
-  background: none;
-}
-
-.details-button:hover {
-  border: 1px solid white;
-}
-
-.review-warning {
-  color: red;
-}
-
-.icon-container {
+.spec-container {
   margin-top: 50px;
 }
 
@@ -177,14 +177,14 @@ a {
   margin-bottom: 20px;
 }
 
-.item-icon {
+.spec-icon {
   position: relative;
   z-index: 100;
   height: 18px;
   display: inline-block;
 }
 
-.item-spec {
+.spec-detail {
   position: relative;
   z-index: 100;
   display: inline-block;
@@ -215,11 +215,22 @@ a {
   padding-top: 5px;
 }
 
+/******************************************************************************
+
+ORDER/CHECKOUT VIEW
+
+*******************************************************************************/
+
+.review-warning {
+  color: red;
+}
+
 #orders-page {
   background: #1f1f1f;
   color: white;
 }
 
+/* readjusts small order photo */
 .item {
   margin-top: -12px;
 }
@@ -279,7 +290,7 @@ hr {
 
 .s12 .order-photo {
   width: 100%;
-  height: 500px;
+  height: 444px;
   border: 1px solid #808080;
   background-position: bottom center;
 }
@@ -295,6 +306,8 @@ hr {
 
 #checkout-table {
   margin-top: 120px;
+  border: 1px solid lightgrey;
+  background: black;
 }
 
 #thead {
@@ -323,13 +336,14 @@ hr {
 }
 
 .total {
-  color: yellow;
+  color: #daa520;
 }
 
 .order-small {
   height: 120px;
   position: relative;
   top: 0;
+  width: 100%;
   right: 0;
 }
 
@@ -363,6 +377,12 @@ hr {
   height: 65px;
   border: none;
   letter-spacing: 2px;
+  border: 1px solid lightgrey;
+  border-top: none;
+}
+
+#order-details {
+  border-left: none;
 }
 
 #edit-order {
@@ -386,36 +406,28 @@ hr {
   transition: .8s ease all;
 }
 
+/******************************************************************************
+
+REGISTER/LOGIN VIEW
+
+******************************************************************************/
+
 #auth-page {
   background: url('../images/camera-4.jpg');
   background-position: right 325px center;
   background-size: cover;
 }
 
-/*#auth-page:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(to bottom right,#000,#191919);
-  opacity: .2;
-  z-index: 1;
-  height: 120vh;
-}*/
-
 #signup-form {
-  position: relative;
-  z-index: 100;
   height: 575px;
   padding-top: 25px;
 }
 
-#login {
+/* login and signup button */
+.auth-button {
   color: white;
-  display: inline-block;
-  height: 42px;
+  height: 45px;
+  line-height: 45px;
   width: 120px;
   text-transform: uppercase;
   letter-spacing: 1.75px;
@@ -427,12 +439,18 @@ hr {
   border: 1px solid white;
 }
 
-#logout {
+.auth-button:hover {
+  border: 1px solid forestgreen;
+  transition: .5s ease all;
+}
+
+#dropdown {
   position: absolute;
   right: 0;
   top: 0;
 }
 
+/* 459 - 478 override materialize dropdown */
 #demoDropdown {
   background: black;
 }
@@ -454,10 +472,12 @@ hr {
   width: 1000px;
 }
 
+/* dropdown icon */
 #menu {
   height: 35px;
 }
 
+/* buttons for signing up and logging in */
 #submit-signup,
 #submit-login {
   color: black;
@@ -468,24 +488,13 @@ hr {
   color: white;
 }
 
-
-#login:hover {
-  background: black;
-  transition: .8s ease all;
+#submit-signup:hover,
+#submit-login:hover {
+  background: forestgreen;
+  transition: .5s ease all;
 }
 
-.sign-up {
-  color: white;
-  position: relative;
-  z-index: 100;
-}
-
-#signup:hover,
-#signup:focus {
-  background: black;
-  transition: .8s ease all;
-}
-
+/* 503-520 changes materialize input defaults */
 input[type=text],
 input[type=email],
 input[type=password] {
@@ -505,19 +514,69 @@ input[type=search]:focus:not([readonly]) {
   box-shadow: none;
 }
 
+/******************************************************************************
+
+FOOTER VIEW
+
+******************************************************************************/
+
 #site-footer {
   margin-top: -20px;
   background: #191b1c;
 }
 
+.social-media {
+  color: #daa520;
+}
+
+.follow-us {
+  color: lightgrey;
+}
+
+.social-media:hover {
+  cursor: pointer;
+}
+
+/******************************************************************************
+
+MEDIA QUERIES
+
+******************************************************************************/
+
+/* adjusts height of small order photos when screen is small-medium */
+@media (max-width: 1000px) {
+  .order-small {
+    height: 100px;
+  }
+}
+
+/* adjusts checkout width when screen becomes smaller */
+@media (max-width: 945px) {
+  #side-nav {
+    width: 80%;
+  }
+}
+
+/* adjusts large photo on orders page when screen becomes smaller */
 @media (max-width: 817px) {
   .s12 .order-photo {
     height: 350px;
   }
 }
 
-@media (max-width: 622px) {
+/* checkout side nav is full width on mobile */
+@media (max-width: 709px) {
+  #side-nav {
+    width: 100%;
+  }
 
+  #checkout {
+    width: 140px;
+  }
+}
+
+/* on mobile, spec icons are hidden due to lack of space */
+@media (max-width: 622px) {
   .product-container {
     height: 250px;
   }
@@ -531,7 +590,7 @@ input[type=search]:focus:not([readonly]) {
   }
 
   .order-button,
-  .details-button {
+  .review-button {
     position: absolute;
     bottom: 0;
     width: 50%;
@@ -541,13 +600,13 @@ input[type=search]:focus:not([readonly]) {
     left: 0;
   }
 
-  .details-button {
+  .review-button {
     right: 0;
     background: #474747;
     border: none;
   }
 
-  .details-button:hover {
+  .review-button:hover {
     border: none;
   }
 
@@ -557,19 +616,20 @@ input[type=search]:focus:not([readonly]) {
   }
 }
 
-@media (max-width: 615px) {
-  #signup-form {
-    border-radius: 0;
+/* adjusts nav bar icons on mobile to ensure good spacing */
+@media (max-width: 531px) {
+  #logo {
+    position: absolute;
+    top: 0px;
+    left: 25px;
   }
 
-  #slogan p {
-    font-size: 30px;
+  .search-icon {
+    position: fixed;
+    left: 90%;
   }
-}
 
-@media (max-width: 580px) {
-  # {
-    text-align: left;
-    margin-left: 25px;
+  .exit-search {
+    display: none;
   }
 }

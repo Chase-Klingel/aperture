@@ -13,6 +13,7 @@ class OrderCtrl {
     this.zip = '';
 
     this.ordersSvc.getCheckoutDetails().then((checkoutDetails) => {
+      // user is new and no details are stored in data base
       if (checkoutDetails.data.length === 0) {
         this.checkoutDetails = {
           items: this.cartSvc.cameraList,
@@ -22,6 +23,7 @@ class OrderCtrl {
           state: this.state,
           zip: this.zip
         }
+      // user info is already stored and needs review
       } else {
         this.checkoutDetails = {
           items: this.cartSvc.cameraList,
@@ -31,11 +33,9 @@ class OrderCtrl {
           state: checkoutDetails.data[0].state,
           zip: checkoutDetails.data[0].zip
         }
-      }
-
-      if (this.checkoutDetails !== undefined) {
         this.needsReview = true;
       }
+
     }).catch((err) => err);
 
     this.userSvc.verifyUser();
@@ -57,7 +57,6 @@ class OrderCtrl {
     }).catch((err) => {
       Materialize.toast('Sorry, there was an error processing your order. Please try again.', 3000);
     })
-
   }
 
   cameraList() {

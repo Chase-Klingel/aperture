@@ -1,6 +1,8 @@
 <div id="side-nav">
-  <a ui-sref="orders"><img class="exit-checkout" src="images/exit-checkout.png" alt="exit"
-    /></a>
+  <a ui-sref="orders">
+    <img class="exit-checkout" src="images/exit-checkout.png" alt="exit"/>
+  </a>
+
   <div class="col s11 offset-s1">
     <h2 class="checkout-header">Checkout</h2>
   </div>
@@ -8,7 +10,9 @@
   <hr>
 
   <div class="col s11 offset-s1">
-    <h3 class="checkout-header checkout-welcome">Welcome to the Aperature family.</h3>
+    <h3 class="checkout-header checkout-welcome">
+      Welcome to the Aperature family.
+    </h3>
   </div>
 
   <div class="col s11 offset-s1">
@@ -21,24 +25,29 @@
       Please review your details before checking out.
     </p>
   </div>
+
   <div input-field class="col s6 offset-s1">
     <label>Address 1</label>
     <input type="text" ng-model="orderCtrl.checkoutDetails.address1"
       autofocus>
   </div>
+
   <div input-field class="col s6 offset-s1">
     <label>Address 2 (optional)</label>
     <input type="text" ng-model="orderCtrl.checkoutDetails.address2"
       autofocus>
   </div>
+
   <div input-field class="col s6 offset-s1">
     <label>City</label>
     <input type="text" ng-model="orderCtrl.checkoutDetails.city">
   </div>
+
   <div input-field class="col s6 offset-s1">
     <label>State</label>
     <input type="text" ng-model="orderCtrl.checkoutDetails.state">
   </div>
+
   <div input-field class="col s6 offset-s1">
     <label>Zip</label>
     <input type="text" ng-model="orderCtrl.checkoutDetails.zip">
