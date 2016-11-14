@@ -1,16 +1,27 @@
 <main id="past-orders-page">
   <ul>
     <li ng-repeat="order in pastOrdersCtrl.pastOrders |  filter:searchCtrl.searchText">
-      <ul id="past-order-info">
-        <li>
-          Quantity Ordered: {{ order.quantity }}
-        </li>
-        <li>
-          Order Placed: {{ order.created_at }}
-        </li>
+      <ul class="row" id="past-order-info">
+        <div class="col s12 m4 order-info center">
+          <li><span class="cap-info">order placed</span>:<br>
+          {{ order.created_at }}</li>
+        </div>
+
+        <div class="col s12 m4 order-info center">
+          <li>
+            <span class="cap-info">quantity ordered</span>: {{ order.quantity }}
+          </li>
+        </div>
+
+        <div class="col s12 m4 button-container">
+          <li>
+            <button class="product-review" type="button">write a product review</button><br>
+            <button class="buy-again" type="button">buy it again</button>
+          </li>
+        </div>
       </ul>
 
-      <div class="col s10 offset-s2 product-container"
+      <div class="col s10 offset-s2 past-product-container"
         id="{{ 'product-' + order.id }}"
         ng-style="{'background-image':'url({{ order.image }})'}">
 

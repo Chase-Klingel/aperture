@@ -8,9 +8,10 @@ class UserService {
       url: '/api/token',
       method: 'GET'
     }).then((res) => {
+      console.log(res.data);
       this.loggedIn = res.data;
       return res;
-    })
+    });
   }
 
   signUp(user) {

@@ -22,7 +22,7 @@
         class="exit-search fade" src="images/delete.png" alt="exit"/>
     </li>
 
-    <li ng-show="navCtrl.displayCatItems()" ng-controller="CartCtrl as cartCtrl">
+    <li ng-show="navCtrl.displayCatItems()">
       <a ui-sref="orders" id="cart">cart ({{ cartCtrl.getCartCount() }})
         {{ cartCtrl.getCartTotal() | currency }}</a>
     </li>

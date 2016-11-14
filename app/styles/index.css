@@ -1,5 +1,4 @@
 html, body {
-  overflow-x: hidden !important;
   background: #1f1f1f;
   color: white;
 }
@@ -21,10 +20,53 @@ PAST ORDERS VIEW
 
 #past-order-info {
   margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0;
   color: lightgrey;
-  margin-bottom: 25px;
+  height: 120px;
+  background: #494949;
 }
 
+.order-info {
+  margin-top: 40px;
+}
+
+.cap-info {
+  color: white;
+  text-transform: uppercase;
+}
+
+.button-container {
+  margin-top: 13px;
+}
+
+.product-review,
+.buy-again {
+  border: 1px solid #eee;
+  width: 218px;
+  height: 42px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.product-review:hover,
+.buy-again:hover {
+  background: black;
+  transition: .5s ease all;
+  border: none;
+}
+
+.buy-again {
+  background: #F44336;
+  border: none;
+}
+
+.product-review {
+  background: none;
+  margin-bottom: 10px;
+}
 /******************************************************************************
 
 NAV BAR
@@ -91,7 +133,8 @@ CATALOG/PAST ORDERS VIEW
   padding-top: 50px;
 }
 
-.product-container {
+.product-container,
+.past-product-container {
   position: relative;
   background-repeat: no-repeat;
   background-position: center center;
@@ -295,9 +338,14 @@ hr {
   background-position: bottom center;
 }
 
+.m7.no-padding.order-large {
+  margin-bottom: 200px;
+}
+
 .order-item-container {
   position: relative;
   cursor: pointer;
+  height: auto;
 }
 
 .order-item {
@@ -440,7 +488,7 @@ REGISTER/LOGIN VIEW
 }
 
 .auth-button:hover {
-  border: 1px solid forestgreen;
+  border: 1px solid #daa520;
   transition: .5s ease all;
 }
 
@@ -490,7 +538,7 @@ REGISTER/LOGIN VIEW
 
 #submit-signup:hover,
 #submit-login:hover {
-  background: forestgreen;
+  background: #daa520;
   transition: .5s ease all;
 }
 
@@ -557,6 +605,14 @@ MEDIA QUERIES
   }
 }
 
+/* adjusts review and buy again buttons when screen becomes smaller */
+@media (max-width: 923px) {
+  .product-review,
+  .buy-again {
+    width: 155px;
+  }
+}
+
 /* adjusts large photo on orders page when screen becomes smaller */
 @media (max-width: 817px) {
   .s12 .order-photo {
@@ -576,8 +632,34 @@ MEDIA QUERIES
 }
 
 /* on mobile, spec icons are hidden due to lack of space */
-@media (max-width: 622px) {
-  .product-container {
+@media (max-width: 600px) {
+  .m7.no-padding.order-large {
+    margin-bottom: 0;
+  }
+
+  #past-order-info {
+    padding-left: 0;
+    height: 300px;
+  }
+
+  .order-info {
+    text-align: center;
+  }
+
+  .button-container {
+    text-align: center;
+  }
+
+  .product-review {
+    margin-top: 25px;
+  }
+
+  .product-review, .buy-again {
+    width: 218px;
+  }
+
+  .product-container,
+  .past-product-container {
     height: 250px;
   }
 
@@ -610,8 +692,7 @@ MEDIA QUERIES
     border: none;
   }
 
-  .item-spec,
-  .item-icon {
+  .spec-list {
     display: none;
   }
 }
@@ -625,7 +706,7 @@ MEDIA QUERIES
   }
 
   .search-icon {
-    position: fixed;
+    position: absolute;
     left: 90%;
   }
 
