@@ -1,10 +1,12 @@
 module.exports = {
   extends: [
     'ryansobol/browser',
-    'ryansobol/es6'
+    'ryansobol/es6',
+    'ryansobol/materialize',
+    'ryansobol/jquery'
   ],
 
-  parserOptions: {
-    sourceType: 'module'
+  rules: {
+   'brace-style': [2, '1tbs', { allowSingleLine: true }],
   }
 };

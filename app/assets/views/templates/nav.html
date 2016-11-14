@@ -22,7 +22,7 @@
         class="exit-search fade" src="images/delete.png" alt="exit"/>
     </li>
 
-    <li ng-show="navCtrl.displayCatItems()">
+    <li ng-show="navCtrl.displayCatItems()" ng-controller="CartCtrl as cartCtrl">
       <a ui-sref="orders" id="cart">cart ({{ cartCtrl.getCartCount() }})
         {{ cartCtrl.getCartTotal() | currency }}</a>
     </li>
@@ -47,7 +47,7 @@
         </li>
       </ul>
     </li>
-    
+
     <li>
       <a class="center auth-button" ui-sref="login"
         ng-show="navCtrl.displayRegItems()">log in</a>
