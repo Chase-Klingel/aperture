@@ -7,15 +7,20 @@ class NavCtrl {
 
   // shows category items (search icon, dropdown, cart) on appropriate pages
   displayCatItems() {
-    if (this.$state.current.name === ('main') ||
-      this.$state.current.name === ('home') ||
-      this.$state.current.name === ('pastOrders')) {
+    if (this.userSvc.currentUser) {
       return true;
     } else {
       return false;
     }
   }
 
+  beginShopping() {
+    if (this.$state.current.name === 'register' || this.$state.current.name === 'login') {
+      return false;
+    } else {
+      return true;
+    }
+  }
   // shows sign up when on login view
   displayRegItems() {
     return this.$state.current.name === 'register' ? true : false;

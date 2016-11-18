@@ -3,9 +3,7 @@ class CatalogCtrl {
     this.catalogSvc = catalogSvc;
     this.userSvc = userSvc;
     this.cartSvc = cartSvc;
-
-    // kicks user to login if not authenticated
-    this.userSvc.verifyUser();
+    this.$state = $state;
 
     this.catalogSvc.getCameras().then((cameras) => {
       this.cameras = cameras;
@@ -13,8 +11,13 @@ class CatalogCtrl {
   }
 
   addCamera(camera) {
-    this.cartSvc.addCamera(camera);
-    Materialize.toast('Added to cart!', 1000);
+    if (this.userSvc.currentUser === null) {
+      this.$state.go('register');
+      return;
+    } else {
+      this.cartSvc.addCamera(camera);
+      Materialize.toast('Added to cart!', 1000);
+    }
   }
 }
 

@@ -3,6 +3,7 @@ class UserService {
     this.$state = $state;
     this.$http = $http;
     this.cartSvc = cartSvc;
+    this.currentUser = null;
     this.loggedIn = false;
     this.$http({
       url: '/api/token',
@@ -20,6 +21,7 @@ class UserService {
       method: 'POST',
       data: user
     }).then((res) => {
+      this.currentUser = true;
       this.loggedIn = true;
       return res;
     }).catch((err) => err);
@@ -31,6 +33,7 @@ class UserService {
       method: 'POST',
       data: user
     }).then((res) => {
+      this.currentUser = true;
       this.loggedIn = true;
       return res;
     })
