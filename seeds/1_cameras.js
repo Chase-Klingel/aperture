@@ -7,7 +7,7 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('cameras').insert([{
         id: 1,
-        name: 'Nikon D3100 DSLR',
+        name: 'Pentax D3100 DSLR',
         image: 'images/camera-1.jpg',
         rating: 4,
         price: 369.99,
