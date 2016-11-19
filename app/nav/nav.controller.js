@@ -17,7 +17,7 @@ class NavCtrl {
   beginShopping() {
     if (this.$state.current.name === 'register' || this.$state.current.name === 'login') {
       return false;
-    } else {
+    } else if (this.userSvc.currentUser === null) {
       return true;
     }
   }
