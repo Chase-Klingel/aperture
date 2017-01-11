@@ -12,7 +12,7 @@ The server and database were built by my instructors at Galvanize and my task wa
 ![Orders Page](./images/orders.png?raw=true "Orders Page")
 
 ## Checkout Page
-![Checkout Page](./README-img/checkout.png?raw=true "Checkout Page")
+![Checkout Page](./images/checkout.png?raw=true "Checkout Page")
 
 ##Technologies used include:
 
