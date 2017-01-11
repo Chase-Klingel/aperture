@@ -1,96 +1,23 @@
-# SnapShop - A Camera Shopping Cart
+# SnapShop
 
-## Get Started
+The server and database were built by my instructors at Galvanize and my task was to build the front end using Angular JS 1.5.8 and ES6 syntax. Prior to this project, I had no experience with Angular and I was amazed that I could get a functional e-commerce site up and running within two weeks. I was really pleased with how much Angular provides out of the box, especially how easy it was to create the search functionality.
 
-Install all dependencies and create the database used for development
+## Login Page
+![Login Page](./images/login.png?raw=true "Register")
 
-```shell
-npm install
-createdb snapshop_dev
-```
+## Landing Page
+![Landing Page](./images/home.png?raw=true "Landing Page")
 
-With the database created, we can now perform the migrations and seeds.
+## Orders Page
+![Orders Page](./images/orders.png?raw=true "Orders Page")
 
-```shell
-npm run knex migrate:latest
-npm run knex seed:run
-```
+## Checkout Page
+![Checkout Page](./README-img/checkout.png?raw=true "Checkout Page")
 
-This application makes use of a SECRET needed for issuing JWTs.
+##Technologies used include:
 
-```shell
-bash -c 'echo "JWT_SECRET="$(openssl rand -hex 64)' > .env
-```
-
-To start the server, run `npm start`
-
-## Assignment Parts
-
-1. [HTML/CSS](1_scaffold_html.md)
-1. [Angular Directives and Filters](2_Angular.md)
-1. Angular Controllers
-1. Angular Services
-1. Angular Routing
-1. Angular Custom Directives
-1. Connect to Server
-1. Stretch Goals
-
-## Usage
-
-The application's code lives in the `app` directory.
-
-```shell
-la app
-```
-
-Static files are placed in the `app/assets` directory and are copied to the `public` directory on build.
-
-```shell
-la app/assets
-```
-
-JS files are stored in `app` and are combined into the `public/app.js` file on build.
-
-**NOTE:** Each JS file lives in a module so can be shared with other modules using [ES6 module](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) syntax.
-
-CSS stylesheets are placed in the `app/styles` directory and are combined into the `public/app.css` file on build.
-
-```shell
-la app/styles
-```
-
-On each build, the application's files are saved to the `public` directory and served by the HTTP server.
-
-```shell
-la public
-```
-
-Watch the project for changes and launch an HTTP server.
-
-**NOTE:** Press `Ctrl + C` to quit.
-
-```shell
-npm start
-```
-
-In a new Terminal tab, navigate back the the project directory.
-
-```shell
-cd path/to/app
-```
-
-Take a look at the `public` directory to see what Brunch created.
-
-```shell
-la public
-```
-
-Open the application in your default browser.
-
-```shell
-open http://localhost:8000/
-```
-
-## Resources
-
-- [Brunch](http://brunch.io)
+* HTML
+* Materialize CSS
+* Angular.js
+* Angular-ui-router
+* Brunch
